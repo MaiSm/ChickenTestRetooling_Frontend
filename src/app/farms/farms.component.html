@@ -1,0 +1,34 @@
+<div class="card border-gray mb-3"  style="margin-left:85px; margin-top:30px; max-width: 70%;">
+    <div class="card-header">Details</div>
+    <div class="card-body text-primary">
+  
+      <table class ="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>Selling Egg Price</th>
+            <th>Buying Egg Price</th>
+            <th>Selling Chicken Price</th>
+            <th>Buying Chicken Price</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let farm of farms">
+            <td>{{farm.id}}</td>
+            <td>{{farm.name}}</td>
+            <td>{{farm.sellingEggPrice}}</td>
+            <td>{{farm.buyingEggPrice}}</td>
+            <td>{{farm.sellingChickenPrice}}</td>
+            <td>{{farm.buyingChickenPrice}}</td>
+            <td>
+                <button type="button" name="button" [routerLink]="['/farms/form', farm.id]" class="btn btn-primary">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
+  
