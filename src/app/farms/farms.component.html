@@ -2,7 +2,7 @@
     <div class="card-header">Details</div>
     <div class="card-body text-primary">
   
-      <table class ="table table-bordered table-striped">
+      <table class ="table table-bordered table-striped" *ngFor="let farm of farms">
         <thead>
           <tr>
             <th>id</th>
@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let farm of farms">
+          <tr >
             <td>{{farm.id}}</td>
             <td>{{farm.name}}</td>
             <td>{{farm.sellingEggPrice}}</td>

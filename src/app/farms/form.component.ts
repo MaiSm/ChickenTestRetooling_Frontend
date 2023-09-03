@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { booleanAttribute, Component } from '@angular/core';
 import { Farm } from './farms';
 import { FarmService } from './farms.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class FormComponent {
   farm: Farm= new Farm();
   titulo: String= "Editing Farm";
+  public errors : string[];
 
   constructor(private farmService : FarmService,
     private router : Router, 
@@ -30,19 +31,22 @@ export class FormComponent {
       }
     })
   }
-    
-  /*create():void{
-    console.log("Clicked!");
-    console.log(this.cliente);
-    this.clienteService.create(this.cliente).subscribe(
-      response => this.router.navigate(['/clientes'])
-      ) //redirige al listado de clientes
-  }*/
 
   update(): void{
-    console.log('EN EL UPDATE ID: ' + this.farm.id);
-    this.farmService.update(this.farm).subscribe(
-      response => this.router.navigate(['/farms'])
-    )
+      this.farmService.update(this.farm)
+      .subscribe({
+        next: json =>{
+        alert(json.Message);
+      } ,
+      error: err => {
+        this.errors = this.farmService.getErrors();
+        alert(this.errors);
+      },
+      complete : () => {
+        this.router.navigate(['/farms']);
+      }
+    });   
   }
+
+
 }

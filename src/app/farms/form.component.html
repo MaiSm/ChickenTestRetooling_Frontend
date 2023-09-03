@@ -2,34 +2,39 @@
     <div class = "card-header" >{{titulo}}</div>
     <div class = "card-body" ></div>
 
-<form style="margin-left:25px; margin-bottom:25px;">
-<!--nombre-->
+<form #editForm="ngForm" style="margin-left:25px; margin-bottom:25px;">
+<!--Selling Egg Price-->
     <div class="form-group row"> <!--para que sea horizontal-->
-        <label for="nombre" class="col-form-label col-sm-6">Selling Egg Price</label> <!--que ocupe 2 columnas de las 12-->
-        <div class="col-sm-4"> <!--que ocupe 6 columnas de las 12-->
-            <input type="text" class="form-control" [(ngModel)]="farm.sellingEggPrice" name="eggPrice">
+        <label for="nombre" class="col-form-label col-sm-5">Selling Egg Price</label> <!--que ocupe 2 columnas de las 12-->
+        <div class="col-sm-6"> <!--que ocupe 6 columnas de las 12-->
+            <input type="number" class="form-control" [(ngModel)]="farm.sellingEggPrice" name="eggPrice" required #sellEggPrice="ngModel" >
+           <div class="alert alert-danger" *ngIf="sellEggPrice.invalid && (sellEggPrice.dirty || sellEggPrice.touched)">
+                <div *ngIf="sellEggPrice.errors.required">
+                    This price is invalid
+                </div>
+           </div>            
         </div>
     </div>
-<!--apellido-->
+<!--Buying Egg Price-->
     <div class="form-group row"> <!--para que sea horizontal-->
-        <label for="apellido" class="col-form-label col-sm-6">Buying Egg Price</label> <!--que ocupe 2 columnas de las 12-->
-        <div class="col-sm-4"> <!--que ocupe 6 columnas de las 12-->
-            <input type="text" class="form-control" [(ngModel)]="farm.buyingEggPrice" name="eggPriceToBuy">
+        <label for="apellido" class="col-form-label col-sm-5">Buying Egg Price</label> <!--que ocupe 2 columnas de las 12-->
+        <div class="col-sm-6"> <!--que ocupe 6 columnas de las 12-->
+            <input type="number" class="form-control" [(ngModel)]="farm.buyingEggPrice" name="eggPriceToBuy">
         </div>
     </div>
-<!--email-->
+<!--Selling Chicken Price-->
     <div class="form-group row"> <!--para que sea horizontal-->
-        <label for="email" class="col-form-label col-sm-6">Selling Chicken Price</label> <!--que ocupe 2 columnas de las 12-->
-        <div class="col-sm-4"> <!--que ocupe 6 columnas de las 12-->
-            <input type="text" class="form-control" [(ngModel)]="farm.sellingChickenPrice" name="chickenPrice">
+        <label for="email" class="col-form-label col-sm-5">Selling Chicken Price</label> <!--que ocupe 2 columnas de las 12-->
+        <div class="col-sm-6"> <!--que ocupe 6 columnas de las 12-->
+            <input type="number" class="form-control" [(ngModel)]="farm.sellingChickenPrice" name="chickenPrice">
         </div>
     </div>
 
-    <!--email-->
+<!--Buying Chicken Price-->
     <div class="form-group row"> <!--para que sea horizontal-->
-        <label for="email" class="col-form-label col-sm-6">Buying Chicken Price</label> <!--que ocupe 2 columnas de las 12-->
-        <div class="col-sm-4"> <!--que ocupe 6 columnas de las 12-->
-            <input type="text" class="form-control" [(ngModel)]="farm.buyingChickenPrice" name="chickenPriceToBuy">
+        <label for="email" class="col-form-label col-sm-5">Buying Chicken Price</label> <!--que ocupe 2 columnas de las 12-->
+        <div class="col-sm-6"> <!--que ocupe 6 columnas de las 12-->
+            <input type="number" pattern= "[0-9]*" class="form-control" [(ngModel)]="farm.buyingChickenPrice" name="chickenPriceToBuy">
         </div>
     </div>
 
@@ -37,7 +42,7 @@
 
     <div class= "form-group row" style="margin-top:40px;margin-left:50%;">
         <div class="col-sm-6">
-            <button class="btn btn-primary" role= "button" (click)='update()'>Edit</button>
+            <button class="btn btn-primary" role= "button" (click)='update()' [disabled]="!editForm.form.valid">Edit</button>
         </div>
     </div>
 

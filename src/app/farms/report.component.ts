@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ReportComponent {
   farm: Farm= new Farm();
   numberOfChickens: number;
+  numberOfEggs: number;
   titulo: String= "Farm Report";
 
   constructor(private farmService : FarmService,
@@ -22,6 +23,7 @@ export class ReportComponent {
     ngOnInit(){
       this.loadFarm();
       this.loadNumberOfChickens();
+      this.loadNumberOfEggs();
     }
 
     loadFarm(): void{
@@ -36,16 +38,25 @@ export class ReportComponent {
     }
 
     loadNumberOfChickens(): any{
-      console.log('Entra acá NOF');
       this.activatedRoute.params.subscribe(params=>{
         let id = params ['id']
-        console.log('Entra acá NOF id: ' + id);
-
         if(id){
-          this.chickenService.getChickensByFarm(id).subscribe(
+          this.farmService.getChickensByFarm(id).subscribe(
             (numberOfChickens => this.numberOfChickens = numberOfChickens)
           )
         }
       })
     }
+
+    loadNumberOfEggs(): any{
+      this.activatedRoute.params.subscribe(params=>{
+        let id = params ['id']
+        if(id){
+          this.farmService.getEggsByFarm(id).subscribe(
+            (numberOfEggs => this.numberOfEggs = numberOfEggs)
+          )
+        }
+      })
+    }   
+
 }

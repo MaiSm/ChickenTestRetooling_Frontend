@@ -14,23 +14,16 @@
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/farms/report/1">Report</a>
-          </li>          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Market
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Buy Eggs</a></li>
-              <li><a class="dropdown-item" href="#">Buy Chickens</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sell Eggs</a></li>
-              <li><a class="dropdown-item" href="#">Sell Chickens</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Move in time</a>
-          </li>
+          </li>    
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/farms/market">Market</a>
+          </li>        
+          
         </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="number" #days placeholder="Select from 1 to 5 days" [(ngModel)]="inputBlank" name= "days" aria-label="Search">
+          <button class="btn btn-outline-success" style="width:200px" type="submit" (click)="getValue(days.value)">Move in time</button>
+        </form>
       </div>
     </div>
   </nav>

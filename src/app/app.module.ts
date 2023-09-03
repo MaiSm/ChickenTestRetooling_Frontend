@@ -13,12 +13,14 @@ import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './farms/report.component';
 import { ChickensComponent } from './chickens/chickens.component';
 import { ChickenService } from './chickens/chickens.service';
+import { MarketComponent } from './market/market.component';
 
 const routes: Routes = [
   //{path: '', redirectTo: '\clientes', pathMatch: 'full'},
   {path: 'farms', component: FarmsComponent},
   {path: 'farms/form/:id', component: FormComponent},
-  {path: 'farms/report/:id', component: ReportComponent}
+  {path: 'farms/report/:id', component: ReportComponent},
+  {path: 'farms/market', component: MarketComponent}
 
 
 ];
@@ -30,7 +32,8 @@ const routes: Routes = [
     FarmsComponent,
     FormComponent,
     ReportComponent,
-    ChickensComponent
+    ChickensComponent,
+    MarketComponent
   ],
   imports: [
     BrowserModule,
