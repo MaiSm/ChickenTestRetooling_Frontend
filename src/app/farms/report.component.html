@@ -1,7 +1,6 @@
 <div class="card bg-white text-dark" style="margin-left:85px; margin-top:30px; max-width: 40%;" >
     <div class="card-header">Farm Report</div>
     <div class="card-body text-primary" style="margin-top:10px;">
-  
       <table class ="table table-bordered table-striped text-dark">          
         <thead>            
           <tr>
@@ -27,7 +26,29 @@
             <td>{{numberOfEggs}}</td>
           </tr> 
         </thead>           
-      </table>
-  
+      </table>  
+    </div>   
+  </div>
+  <div class="card bg-white text-dark" style="margin-left:85px; margin-top:30px; max-width: 40%;" >
+    <div class="card-header">Chickens Report</div>
+    <div class="card-body text-primary" style="margin-top:10px;">
+      <table class ="table table-bordered table-striped text-dark">          
+        <thead>            
+          <tr>
+            <th>Id</th>
+            <th >Days of Life</th>
+            <th>Price</th>
+            <th>Days Since Last Eggs</th>
+          </tr>       
+        </thead>      
+        <tbody *ngFor="let chicken of chickens">
+          <tr>
+            <td>{{chicken.id}}</td> 
+            <td>{{chicken.days}}</td>
+            <td>${{chicken.price}}</td>
+            <td>{{chicken.daysSinceLastEggs}}</td>
+          </tr> 
+        </tbody>                 
+      </table>  
     </div>   
   </div>

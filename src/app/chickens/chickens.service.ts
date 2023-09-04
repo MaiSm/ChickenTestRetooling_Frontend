@@ -14,5 +14,9 @@ export class ChickenService {
   getChickensByFarm(id):Observable<number>{
     return this.http.get<number>(`${this.urlEndPoint}/farms/${id}`);
   }
+
+  getAllChickens():Observable<Chicken[]>{
+    return this.http.get<Chicken[]>(`${this.urlEndPoint}`);
+  }
  
 }

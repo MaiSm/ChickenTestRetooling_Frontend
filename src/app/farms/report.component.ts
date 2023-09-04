@@ -3,6 +3,7 @@ import { Farm } from './farms';
 import { FarmService } from './farms.service';
 import { ChickenService } from '../chickens/chickens.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Chicken } from '../chickens/chickens';
 
 @Component({
   selector: 'app-report',
@@ -11,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class ReportComponent {
   farm: Farm= new Farm();
+  chickens: Chicken[] = [];
   numberOfChickens: number;
   numberOfEggs: number;
   titulo: String= "Farm Report";
@@ -24,6 +26,7 @@ export class ReportComponent {
       this.loadFarm();
       this.loadNumberOfChickens();
       this.loadNumberOfEggs();
+      this.loadChickens();
     }
 
     loadFarm(): void{
@@ -57,6 +60,12 @@ export class ReportComponent {
           )
         }
       })
-    }   
+    }  
+    
+    loadChickens(): void{          
+      this.chickenService.getAllChickens().subscribe(
+        chickens => this.chickens = chickens
+      )          
+    }
 
 }
