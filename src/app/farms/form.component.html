@@ -53,6 +53,34 @@
         </div>
     </div>
 
+    <!--Chicken Limit -->
+    <div class="form-group row"> <!--para que sea horizontal-->
+        <label for="email" class="col-form-label col-sm-5">Limit of Chickens</label> <!--que ocupe 2 columnas de las 12-->
+        <div class="col-sm-6"> <!--que ocupe 6 columnas de las 12-->
+            <input type="number" pattern= "[0-9]*" class="form-control" [(ngModel)]="farm.limitOfChickens" name="limitOfChickens" required #limitOfChickens="ngModel">
+            <div class="alert alert-danger" *ngIf="limitOfChickens.invalid && (limitOfChickens.dirty || limitOfChickens.touched)">
+                <div *ngIf="limitOfChickens.errors">
+                    This price is invalid
+            </div>
+        </div>  
+        </div>
+    </div>
+
+    <!--Egg Limit-->
+    <div class="form-group row"> <!--para que sea horizontal-->
+        <label for="email" class="col-form-label col-sm-5">Limit of Eggs</label> <!--que ocupe 2 columnas de las 12-->
+        <div class="col-sm-6"> <!--que ocupe 6 columnas de las 12-->
+            <input type="number" pattern= "[0-9]*" class="form-control" [(ngModel)]="farm.limitOfEggs" name="limitOfEggs" required #limitOfEggs="ngModel">
+            <div class="alert alert-danger" *ngIf="limitOfEggs.invalid && (limitOfEggs.dirty || limitOfEggs.touched)">
+                <div *ngIf="limitOfEggs.errors">
+                    This price is invalid
+            </div>
+        </div>  
+        </div>
+    </div>
+
+
+
 <!--BOTÓN-->
 
     <div class= "form-group row" style="margin-top:40px;margin-right:50%;">
