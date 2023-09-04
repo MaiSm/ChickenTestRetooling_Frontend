@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { DetailsComponent } from './details/details.component';
+import { HomeComponent } from './home/home.component';
 import { FarmsComponent } from './farms/farms.component';
 import { FarmService } from './farms/farms.service';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,7 +16,8 @@ import { ChickenService } from './chickens/chickens.service';
 import { MarketComponent } from './market/market.component';
 
 const routes: Routes = [
-  //{path: '', redirectTo: '\clientes', pathMatch: 'full'},
+  {path: '', redirectTo: '\home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'farms', component: FarmsComponent},
   {path: 'farms/form/:id', component: FormComponent},
   {path: 'farms/report/:id', component: ReportComponent},
@@ -28,7 +29,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    DetailsComponent,
+    HomeComponent,
     FarmsComponent,
     FormComponent,
     ReportComponent,

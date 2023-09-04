@@ -9,14 +9,7 @@ export class FarmService {
   private urlEndPoint: string = 'http://localhost:8080/farms';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   
-  public errors : string[];
-
   constructor(private http: HttpClient) { }
-
-  
-  getErrors(): string[] {
-    return this.errors;
-  }
 
   getFarms(): Observable<Farm[]> {
     return this.http.get<Farm[]>(this.urlEndPoint);
@@ -34,15 +27,13 @@ export class FarmService {
 
   update(farm: Farm): Observable<any>{   
     return this.http.put<any>(`${this.urlEndPoint}/${farm.id}`, farm, {headers: this.httpHeaders}).pipe(
-      catchError(e => {
-        if(e.status ==400){
-          this.errors = e.error.errors as string[];
-          throw new Error(e);
-        }
-
-        console.error(e.error.Message);
-        alert( e.error.Message);
-        throw new Error(e);
+      tap((response : any) => {
+        alert(response.Message);
+      }),
+      catchError(e => {                
+        console.error(e.error.errors);
+        alert( e.error.errors);
+        return throwError(e);  
       } )
     );
   }
@@ -69,7 +60,16 @@ export class FarmService {
   }
 
   handleMarketOperation(selectedValue, selectedValueType, amount):Observable<Object>{
-    return this.http.get(`${this.urlEndPoint}/1/${selectedValueType}/${selectedValue}/${amount}`);
+    return this.http.get(`${this.urlEndPoint}/1/${selectedValueType}/${selectedValue}/${amount}`).pipe(
+      tap((response : any) => {
+        alert(response.Message);
+      }),
+      catchError(e => {
+        console.error(e.error.Message);
+        alert( e.error.Message);
+        return throwError(e);
+      } )
+    );
   }
   
 /*

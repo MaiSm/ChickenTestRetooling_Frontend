@@ -10,9 +10,9 @@ import { map, catchError, of, Observable } from 'rxjs';
 })
 export class MarketComponent {
 
-  selectedValue: string = '';
-  selectedValueType: string = '';
-  amount: number;
+  selectedValue: string = 'buy';
+  selectedValueType: string = 'eggs';
+  amount: number = 1;
 
   constructor(private farmService : FarmService,
     private router : Router, 
@@ -27,7 +27,7 @@ export class MarketComponent {
           (response => this.router.navigate(['/farms/report/1']))
         )     
     })
-    alert('You clicked the button!')
+    //alert('You clicked the button!')
   }
 
 }

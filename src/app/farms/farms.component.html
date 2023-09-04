@@ -1,34 +1,40 @@
-<div class="card border-gray mb-3"  style="margin-left:85px; margin-top:30px; max-width: 70%;">
+<div class="card border-gray mb-3"  style="margin-left:85px; margin-top:30px; max-width: 40%;">
     <div class="card-header">Details</div>
     <div class="card-body text-primary">
   
       <table class ="table table-bordered table-striped" *ngFor="let farm of farms">
         <thead>
           <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>Selling Egg Price</th>
-            <th>Buying Egg Price</th>
-            <th>Selling Chicken Price</th>
-            <th>Buying Chicken Price</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <td>{{farm.id}}</td>
+            <th>Name</th>
             <td>{{farm.name}}</td>
-            <td>{{farm.sellingEggPrice}}</td>
-            <td>{{farm.buyingEggPrice}}</td>
-            <td>{{farm.sellingChickenPrice}}</td>
-            <td>{{farm.buyingChickenPrice}}</td>
-            <td>
-                <button type="button" name="button" [routerLink]="['/farms/form', farm.id]" class="btn btn-primary">Edit</button>
-            </td>
           </tr>
-        </tbody>
+          <tr>
+            <th>Egg Selling Price</th>
+            <td>${{farm.sellingEggPrice}}</td>
+          </tr>
+          <tr>
+            <th>Egg Buying Price</th>
+            <td>${{farm.buyingEggPrice}}</td>
+          </tr>
+          <tr>
+            <th>Chicken Selling Price</th>
+            <td>${{farm.sellingChickenPrice}}</td>
+          </tr>
+          <tr>
+            <th>Chicken Buying Price</th>
+            <td>${{farm.buyingChickenPrice}}</td>
+          </tr>   
+          <tr>
+            <th>Limit of Chickens</th>
+            <td>{{farm.limitOfChickens}}</td>
+          </tr>  
+          <tr>
+            <th>Limit of Eggs</th>
+            <td>{{farm.limitOfEggs}}</td>
+          </tr>         
+        </thead>
+        <button type="button" name="button" [routerLink]="['/farms/form', farm.id]" class="btn btn-primary" style="margin-top:40px;margin-right:30%;">Edit</button>        
       </table>
-  
-    </div>
+     </div>
   </div>
   

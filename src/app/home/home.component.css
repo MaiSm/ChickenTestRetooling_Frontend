@@ -1,0 +1,20 @@
+.image-text {
+    font-size: 35px;
+    position: absolute; /* Position the text element relative to its parent (.image-container) */
+    top: 25%; /* Vertically center the text */
+    left: 50%; /* Horizontally center the text */
+    transform: translate(-50%, -50%); /* Center the text precisely */
+    padding: 10px; /* Add padding around the text for readability */
+    color: white;
+    border-radius: 5px; /* Add rounded corners to the text background */
+ }
+
+ .table {
+    position: absolute; /* Position the text element relative to its parent (.image-container) */
+    top: 70%; /* Vertically center the text */
+    left: 50%; /* Horizontally center the text */
+    transform: translate(-50%, -50%); /* Center the text precisely */
+    padding: 10px; /* Add padding around the text for readability */
+    color: white;
+    border-radius: 5px; /* Add rounded corners to the text background */
+ }

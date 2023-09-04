@@ -6,4 +6,6 @@ export class Farm {
     sellingChickenPrice: number;    
     buyingEggPrice: number;
     buyingChickenPrice: number;
+    limitOfChickens: number;
+    limitOfEggs: number;
 }

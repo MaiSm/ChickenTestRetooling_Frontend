@@ -10,7 +10,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class FormComponent {
   farm: Farm= new Farm();
   titulo: String= "Editing Farm";
-  public errors : string[];
 
   constructor(private farmService : FarmService,
     private router : Router, 
@@ -34,19 +33,9 @@ export class FormComponent {
 
   update(): void{
       this.farmService.update(this.farm)
-      .subscribe({
-        next: json =>{
-        alert(json.Message);
-      } ,
-      error: err => {
-        this.errors = this.farmService.getErrors();
-        alert(this.errors);
-      },
-      complete : () => {
-        this.router.navigate(['/farms']);
-      }
-    });   
+      .subscribe(
+        (response => this.router.navigate(['/farms'])) 
+    );       
   }
-
 
 }
