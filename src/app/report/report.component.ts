@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Farm } from './farms';
-import { FarmService } from './farms.service';
+import { Farm } from '../farms/farms';
+import { FarmService } from '../farms/farms.service';
 import { ChickenService } from '../chickens/chickens.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Chicken } from '../chickens/chickens';

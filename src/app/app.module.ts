@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './farms/form.component';
 import { FormsModule } from '@angular/forms';
-import { ReportComponent } from './farms/report.component';
+import { ReportComponent } from './report/report.component';
 import { ChickensComponent } from './chickens/chickens.component';
 import { ChickenService } from './chickens/chickens.service';
 import { MarketComponent } from './market/market.component';
