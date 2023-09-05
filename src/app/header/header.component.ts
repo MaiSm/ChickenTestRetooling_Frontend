@@ -9,7 +9,6 @@ templateUrl: './header.component.html'
 
 export class HeaderComponent{
 title: string = 'Greendale Farm';
-result: Object;
 inputBlank : string = "";
 
 constructor(private farmService : FarmService,
@@ -21,11 +20,9 @@ getValue(days:number): any{
     this.activatedRoute.params.subscribe(params=>{          
         if(days){
             this.farmService.moveInTime(days).subscribe(
-            (result => this.result = result)
+              (response => this.router.navigate(['/farms']))
           )
-          this.inputBlank = "";
-          
-
+          this.inputBlank = "";   
         }
       })
   }
