@@ -4,6 +4,8 @@ import { FarmService } from './farms.service';
 import { ChickenService } from '../chickens/chickens.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Chicken } from '../chickens/chickens';
+import { Egg } from '../eggs/eggs';
+import { EggService } from '../eggs/eggs.service';
 
 @Component({
   selector: 'app-report',
@@ -13,13 +15,16 @@ import { Chicken } from '../chickens/chickens';
 export class ReportComponent {
   farm: Farm= new Farm();
   chickens: Chicken[] = [];
+  eggs: Egg[] = [];
   numberOfChickens: number;
   numberOfEggs: number;
   titulo: String= "Farm Report";
 
   constructor(private farmService : FarmService,
     private router : Router, 
-    private activatedRoute: ActivatedRoute, private chickenService: ChickenService
+    private activatedRoute: ActivatedRoute, 
+    private chickenService: ChickenService,
+    private eggService: EggService
     ){}
 
     ngOnInit(){
@@ -27,6 +32,7 @@ export class ReportComponent {
       this.loadNumberOfChickens();
       this.loadNumberOfEggs();
       this.loadChickens();
+      this.loadEggs();
     }
 
     loadFarm(): void{
@@ -65,6 +71,12 @@ export class ReportComponent {
     loadChickens(): void{          
       this.chickenService.getAllChickens().subscribe(
         chickens => this.chickens = chickens
+      )          
+    }
+
+    loadEggs(): void{          
+      this.eggService.getAllEggs().subscribe(
+        eggs => this.eggs = eggs
       )          
     }
 

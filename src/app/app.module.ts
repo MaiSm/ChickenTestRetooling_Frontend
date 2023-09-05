@@ -14,6 +14,8 @@ import { ReportComponent } from './farms/report.component';
 import { ChickensComponent } from './chickens/chickens.component';
 import { ChickenService } from './chickens/chickens.service';
 import { MarketComponent } from './market/market.component';
+import { EggsComponent } from './eggs/eggs.component';
+import { EggService } from './eggs/eggs.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '\home', pathMatch: 'full'},
@@ -34,7 +36,8 @@ const routes: Routes = [
     FormComponent,
     ReportComponent,
     ChickensComponent,
-    MarketComponent
+    MarketComponent,
+    EggsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FarmService, ChickenService],
+  providers: [FarmService, ChickenService, EggService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
